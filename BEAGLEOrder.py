@@ -142,7 +142,7 @@ data_file_name = "lemmatized.text" # file with the text corpus
 epochsRI = 10 
 
 
-for epochsRITrain in range(3, 5):
+for epochsRITrain in range(21):
     for run in range(3):
         print('Reading')
 
@@ -724,7 +724,7 @@ for epochsRITrain in range(3, 5):
         w2vObjectRI.train(sentences, total_examples=w2vObjectRI.corpus_count, epochs=epochsRITrain)#w2vObject.iter)
         # print(w2vObject.wv['the'], 'after train')
         # sys.exit()
-        w2vObjectRI.wv.save_word2vec_format(f'./BEAGLE/GensimOneBAEGLEOrder{epochsRITrain}Run{run}.txt', binary=False) #encoding='utf-8' )
+        w2vObjectRI.wv.save_word2vec_format(f'./BEAGLE/GensimOneBAEGLEOrder{epochsRITrain}Run{run}.pkl.gz')#, binary=False) #encoding='utf-8' )
         # print('saved')
         
         ############################## for this dict is over go to next this is order #########################

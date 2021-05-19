@@ -229,8 +229,8 @@ epochsRI = 11
 runs = 6
 
 # get_ipython().system('pwd')
-for epoch in range(3, epochsRI):
-    for run in range(4):
+for epoch in range(21):
+    for run in range(3):
         w2vObjectRI = gensim.models.Word2Vec(min_count=1, sample=threshold, sg=1,size=dimension, negative=15, iter=epoch, window=3, workers=8) # create only the shell
 
         print('Starting vocab build')
@@ -296,7 +296,7 @@ for epoch in range(3, epochsRI):
         w2vObjectRI.train(sentences, total_examples=w2vObjectRI.corpus_count, epochs=epoch)#w2vObject.iter)
         # print(w2vObject.wv['the'], 'after train')
         # sys.exit()
-        w2vObjectRI.wv.save_word2vec_format(f'./WithRIRuns/W2V_OnlyRI{epoch}Run{run}.txt', binary=False) #encoding='utf-8' )
+        w2vObjectRI.wv.save_word2vec_format(f'./WithRIRuns/W2V_OnlyRI{epoch}Run{run}.pkl.gz')# binary=False) #encoding='utf-8' )
         # print('saved')
 
 

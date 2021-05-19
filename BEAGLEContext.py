@@ -142,7 +142,7 @@ data_file_name = "lemmatized.text" # file with the text corpus
 epochsRI = 10 
 
 
-for epochsRITrain in range(6):
+for epochsRITrain in range(21):
     for run in range(3):
         print('Reading')
 
@@ -454,7 +454,7 @@ for epochsRITrain in range(6):
             if len(contextVecs_cooccurrence[elem]) != 300:
                 print('here', elem) #cast it to the fire
             w2vObjectRI.wv[elem] = np.asarray(contextVecs_cooccurrence[elem], dtype=np.float32)
-            print(elem, 'moved')
+            # print(elem, 'moved')
         print('Done!!!')
 
 
@@ -465,7 +465,7 @@ for epochsRITrain in range(6):
         w2vObjectRI.train(sentences, total_examples=w2vObjectRI.corpus_count, epochs=epochsRITrain)#w2vObject.iter)
         # print(w2vObject.wv['the'], 'after train')
         # sys.exit()
-        w2vObjectRI.wv.save_word2vec_format(f'./BEAGLE/GensimOneBAEGLEContext{epochsRITrain}Run{run}.txt', binary=False) #encoding='utf-8' )
+        w2vObjectRI.wv.save_word2vec_format(f'./BEAGLE/GensimOneBAEGLEContext{epochsRITrain}Run{run}.pkl.gz')#, binary=False) #encoding='utf-8' )
         # print('saved')
 
 
